@@ -2,7 +2,7 @@
 //   QUOTE_ENDPOINT: a form service URL that accepts POST (Formspree, Basin, Netlify Forms, etc.)
 //   QUOTE_EMAIL:    fallback that opens the visitor's email app with the request filled in
 const QUOTE_ENDPOINT = '';
-const QUOTE_EMAIL = '';
+const QUOTE_EMAIL = 'qualitygranite7@gmail.com';
 const FACEBOOK_URL = 'https://www.facebook.com/modern.granite.quartz.2025';
 
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -237,9 +237,9 @@ form.addEventListener('submit', async (e) => {
 
   if (QUOTE_EMAIL) {
     window.location.href = `mailto:${QUOTE_EMAIL}?subject=${encodeURIComponent('Countertop quote request')}&body=${encodeURIComponent(body)}`;
-    statusEl.textContent = 'Your email app should open with the request filled in. Press send to finish.';
+    statusEl.innerHTML = `Your email app should open with the request filled in. Press send to finish. If nothing opened, email <a href="mailto:${QUOTE_EMAIL}">${QUOTE_EMAIL}</a> or call or text <a href="tel:+12489810033">(248) 981-0033</a>.`;
     return;
   }
 
-  statusEl.innerHTML = `Online requests aren't switched on yet. Please <a href="${FACEBOOK_URL}" target="_blank" rel="noopener">message us on Facebook</a> with these details.`;
+  statusEl.innerHTML = `Online requests aren't switched on yet. Please call or text <a href="tel:+12489810033">(248) 981-0033</a>, or <a href="${FACEBOOK_URL}" target="_blank" rel="noopener">message us on Facebook</a>.`;
 });

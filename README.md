@@ -4,8 +4,8 @@ Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build s
 
 ## Before launch
 
-- **Quote form**: set `QUOTE_ENDPOINT` (e.g. a Formspree URL) or `QUOTE_EMAIL` at the top of `script.js`. Until one is set, the form validates and then points visitors to Facebook.
-- **Phone number / email**: none were public on the Facebook page, so none are shown. Add them to the "Get a free quote" contact list in `index.html` (and the header if wanted).
+- **Quote form**: `QUOTE_EMAIL` is set to qualitygranite7@gmail.com, so submitting opens the visitor's email app with the request filled in. For requests that send without the visitor's email app, set `QUOTE_ENDPOINT` (Formspree, or a Cloudflare Pages function with Resend like the New Beginnings site).
+- **Contact**: phone (248) 981-0033 and qualitygranite7@gmail.com appear in the header, hero, quote section, footer and structured data.
 - **Service area**: the "Where we install" section lists cities in Oakland, Livingston, Washtenaw, Wayne and Macomb counties. Confirm the list with Razvan; the same cities are repeated in the `areaServed` structured data in the page head.
 - **Reviews**: only one public review was available (Vitalie Cortac). Add more real reviews to the `#reviews` section as they come in.
 - **Photos**: `assets/img/` holds the 10 job photos from Facebook, renamed. `assets/source/` has the untouched originals. The profile photo was not used.
