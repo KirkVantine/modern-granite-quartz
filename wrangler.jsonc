@@ -1,0 +1,14 @@
+{
+  // Cloudflare Workers config: an assets-only Worker with no `main` entry point,
+  // so Cloudflare serves the static files in this folder as they are.
+  // Files that are not part of the site are listed in .assetsignore.
+  //
+  // Pairs with these Cloudflare build settings (Workers & Pages > import this repo):
+  //   Build command:  (leave empty)
+  //   Deploy command: npx wrangler deploy
+  "name": "modern-granite-quartz",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./"
+  }
+}

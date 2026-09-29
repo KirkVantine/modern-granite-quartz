@@ -1,6 +1,10 @@
 # Modern Granite Quartz website
 
-Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build step. Open `index.html` or serve the folder with any static host (Netlify, Cloudflare Pages, GitHub Pages).
+Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build step.
+
+**Live:** https://moderngranitequartz.com, hosted on Cloudflare Workers (assets only), deployed automatically from `main` by Cloudflare Workers Builds. `wrangler.jsonc` configures it; `.assetsignore` keeps non-site files (README, git files, `assets/source/`) off the server. Domain registered on KV's Cloudflare account 2026-09-29, renews 2027-09-29.
+
+**Preview:** https://kirkvantine.github.io/modern-granite-quartz/ (GitHub Pages, also from `main`).
 
 ## Before launch
 
