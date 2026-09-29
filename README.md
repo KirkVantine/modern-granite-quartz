@@ -8,7 +8,7 @@ Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build s
 - **Contact**: phone (248) 981-0033 and qualitygranite7@gmail.com appear in the header, hero, quote section, footer and structured data.
 - **Service area**: the "Where we install" section lists cities in Oakland, Livingston, Washtenaw, Wayne and Macomb counties. Confirm the list with Razvan; the same cities are repeated in the `areaServed` structured data in the page head.
 - **Reviews**: only one public review was available (Vitalie Cortac). Add more real reviews to the `#reviews` section as they come in.
-- **Photos**: `assets/img/` holds the 10 job photos from Facebook, renamed. `assets/source/` has the untouched originals. The profile photo was not used.
+- **Photos**: `assets/img/` holds web-sized copies (max 2048px, ~200-600 KB). Ten are photos Razvan sent on 2026-09-29 (originals in `assets/source/razvan-batch-1` and `razvan-batch-2`); four are from the Facebook page (originals in `assets/source/`). The profile photo was not used.
 
 ## Logo files
 

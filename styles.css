@@ -183,44 +183,17 @@ p { margin: 0; }
 .section-dark .section-head p { color: #B9C0C6; }
 .section-stone { background: var(--slab-deep); }
 
-/* Mosaic */
-.mosaic {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: auto auto;
-  gap: clamp(16px, 2vw, 28px);
-}
-.tile { margin: 0; display: flex; flex-direction: column; gap: 14px; }
-.tile-a { grid-column: 1 / span 5; grid-row: 1 / span 2; }
-.tile-b { grid-column: 6 / span 4; }
-.tile-c { grid-column: 10 / span 3; }
-.tile-d { grid-column: 6 / span 3; }
-.tile-e { grid-column: 9 / span 4; }
-.tile-open { display: block; width: 100%; padding: 0; border: 0; background: var(--mist); cursor: zoom-in; overflow: hidden; border-radius: 2px; flex: 1; min-height: 0; }
+/* Mosaic: one photo per kind of job */
+.mosaic { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3vw, 40px) clamp(16px, 2vw, 28px); }
+.tile { margin: 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.tile-open { display: block; width: 100%; padding: 0; border: 0; background: var(--mist); cursor: zoom-in; overflow: hidden; border-radius: 2px; }
 .tile-open img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
 .tile-open:hover img { transform: scale(1.03); }
-.tile-a .tile-open { aspect-ratio: auto; }
-.tile-a .tile-open img { object-position: 50% 78%; }
-.tile-b .tile-open, .tile-e .tile-open { aspect-ratio: 4 / 3; }
-.tile-c .tile-open, .tile-d .tile-open { aspect-ratio: 3 / 4; }
-.tile-e .tile-open img { object-position: 50% 65%; }
-.tile-b .tile-open img { object-position: 50% 55%; }
-.tile-c .tile-open img { object-position: 50% 55%; }
+.mosaic .tile-open { aspect-ratio: 4 / 5; }
 .tile figcaption { font-size: var(--step--1); color: var(--slate); max-width: 38ch; }
 .tile figcaption strong { display: block; color: var(--graphite); font-size: var(--step-0); font-weight: 700; font-stretch: 112%; font-variation-settings: "wdth" 112; margin-bottom: 2px; }
-
-@media (max-width: 960px) {
-  .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tile-a, .tile-b, .tile-c, .tile-d, .tile-e { grid-column: auto; grid-row: auto; }
-  .tile-a { grid-column: 1 / -1; }
-  .tile-a .tile-open { aspect-ratio: 16 / 10; }
-  .tile-a .tile-open img { object-position: 50% 58%; }
-  .tile-b .tile-open, .tile-c .tile-open, .tile-d .tile-open, .tile-e .tile-open { aspect-ratio: 4 / 5; }
-}
-@media (max-width: 520px) {
-  .mosaic { grid-template-columns: 1fr; }
-  .tile-open { aspect-ratio: 4 / 3 !important; }
-}
+@media (max-width: 960px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .tile-open { aspect-ratio: 4 / 3; } }
 
 /* Materials table */
 .table-scroll { overflow-x: auto; }
@@ -287,18 +260,10 @@ p { margin: 0; }
 @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
 
 /* Gallery */
-.gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 1.5vw, 20px); aspect-ratio: 2.1 / 1; }
-.gallery li { min-height: 0; }
-.gallery .tile-open { height: 100%; }
-.gallery .g-wide { grid-row: 1 / span 2; }
-.gallery .g-tall { grid-row: 1 / span 2; }
-@media (max-width: 760px) {
-  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; aspect-ratio: auto; }
-  .gallery .g-wide { grid-column: 1 / -1; grid-row: auto; }
-  .gallery .g-tall { grid-row: auto; }
-  .gallery .g-wide .tile-open { aspect-ratio: 4 / 3; }
-  .gallery li:not(.g-wide) .tile-open { aspect-ratio: 3 / 4; }
-}
+.gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.5vw, 20px); }
+.gallery li { min-width: 0; }
+.gallery .tile-open { aspect-ratio: 3 / 4; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .gallery-more { margin-top: 28px; }
 .gallery-more a, .review-link a { color: var(--vein-ink); font-weight: 600; text-underline-offset: 4px; }
 @media (max-width: 640px) {
