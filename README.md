@@ -4,7 +4,7 @@ Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build s
 
 **Live:** https://moderngranitequartz.com, hosted on Cloudflare Workers (assets only), deployed automatically from `main` by Cloudflare Workers Builds. `wrangler.jsonc` configures it; `.assetsignore` keeps non-site files (README, git files, `assets/source/`) off the server. Domain registered on KV's Cloudflare account 2026-09-29, renews 2027-09-29.
 
-**Preview:** https://kirkvantine.github.io/modern-granite-quartz/ (GitHub Pages, also from `main`).
+The GitHub Pages preview was turned off at launch (2026-09-29) so search engines only see one copy of the site.
 
 ## Before launch
 
