@@ -189,11 +189,12 @@ p { margin: 0; }
 .tile-open { display: block; width: 100%; padding: 0; border: 0; background: var(--mist); cursor: zoom-in; overflow: hidden; border-radius: 2px; }
 .tile-open img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
 .tile-open:hover img { transform: scale(1.03); }
-.mosaic .tile-open { aspect-ratio: 4 / 5; }
+.mosaic .tile-open, .mosaic .tile-open img { aspect-ratio: 4 / 5; }
+.mosaic .tile-open img { height: auto; }
 .tile figcaption { font-size: var(--step--1); color: var(--slate); max-width: 38ch; }
 .tile figcaption strong { display: block; color: var(--graphite); font-size: var(--step-0); font-weight: 700; font-stretch: 112%; font-variation-settings: "wdth" 112; margin-bottom: 2px; }
 @media (max-width: 960px) { .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .tile-open { aspect-ratio: 4 / 3; } }
+@media (max-width: 520px) { .mosaic { grid-template-columns: 1fr; } .mosaic .tile-open, .mosaic .tile-open img { aspect-ratio: 4 / 3; } }
 
 /* Materials table */
 .table-scroll { overflow-x: auto; }
@@ -263,13 +264,11 @@ p { margin: 0; }
 .gallery { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.5vw, 20px); }
 .gallery li { min-width: 0; }
 .gallery .tile-open { aspect-ratio: 3 / 4; }
+/* Also on the image: iOS Safari ignores aspect-ratio on a <button>, so the photo sets its own shape */
+.gallery .tile-open img { aspect-ratio: 3 / 4; height: auto; }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .gallery-more { margin-top: 28px; }
 .gallery-more a, .review-link a { color: var(--vein-ink); font-weight: 600; text-underline-offset: 4px; }
-@media (max-width: 640px) {
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .gallery li:first-child .tile-open { aspect-ratio: 4 / 3; }
-}
 
 /* Review */
 .review { padding-block: clamp(56px, 8vw, 112px); border-top: 1px solid var(--mist); }
