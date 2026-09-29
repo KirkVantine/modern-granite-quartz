@@ -126,7 +126,7 @@ p { margin: 0; }
   --copy-pad: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
   padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(40px, 5vw, 72px) var(--copy-pad);
 }
-.hero h1 { font-size: var(--step-4); font-weight: 800; max-width: 11ch; }
+.hero h1 { font-size: var(--step-4); font-weight: 800; max-width: 12ch; }
 .lede { margin-top: 22px; max-width: 46ch; font-size: var(--step-1); line-height: 1.55; color: var(--slate); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 .hero-points { list-style: none; margin: 44px 0 0; padding: 20px 0 0; border-top: 1px solid var(--mist); display: grid; gap: 10px; font-size: var(--step--1); color: var(--graphite); }
