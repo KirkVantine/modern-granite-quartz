@@ -30,6 +30,15 @@ if (measureValue && !window.matchMedia('(prefers-reduced-motion: reduce)').match
   requestAnimationFrame(tick);
 }
 
+/* Mobile call / quote bar: hidden while the quote form is on screen, so it never covers the fields */
+const mobileCta = document.querySelector('.mobile-cta');
+const quoteSection = document.getElementById('quote');
+if (mobileCta && quoteSection && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    mobileCta.classList.toggle('is-hidden', entry.isIntersecting);
+  }, { threshold: 0.15 }).observe(quoteSection);
+}
+
 /* Header: border once scrolled, mobile menu */
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
