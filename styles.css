@@ -141,21 +141,31 @@ p { margin: 0; }
   font-size: .8125rem; border-radius: 2px;
 }
 
-.hero-vein {
-  display: block; position: relative; z-index: 3; pointer-events: none;
-  width: calc(100% + var(--copy-pad) + 32vw); height: 64px;
-  margin: 18px 0 0 calc(-1 * var(--copy-pad));
-  overflow: visible;
+.hero-measure {
+  position: relative; margin-top: 26px; height: 40px;
+  --measure-dur: 1.8s;
 }
-.hero-vein path { fill: none; stroke: var(--vein); stroke-width: 2.4; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw-vein 2.2s .35s var(--ease-out) forwards; }
-.hero-vein .fork { stroke-width: 1.1; opacity: .85; animation-delay: 1.2s; animation-duration: 1.1s; }
-@keyframes draw-vein { to { stroke-dashoffset: 0; } }
+.measure-rule { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.measure-rule path { fill: none; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.measure-line, .measure-cap { stroke: var(--graphite); }
+.measure-ticks { stroke: var(--slate); stroke-width: 1; }
+.measure-cap { stroke-width: 2; }
+.measure-label {
+  position: absolute; left: 50%; bottom: 2px; transform: translateX(-50%);
+  padding: 0 12px; background: var(--slab);
+  font-size: var(--step-1); font-weight: 700; line-height: 1;
+  font-variant-numeric: tabular-nums; color: var(--vein-ink); white-space: nowrap;
+}
+/* Draw from the left edge like a tape pulled across the slab */
+.measure-rule { clip-path: inset(0 100% 0 0); animation: measure-draw var(--measure-dur) .3s var(--ease-out) forwards; }
+.measure-label { opacity: 0; animation: measure-label .3s .5s forwards; }
+@keyframes measure-draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes measure-label { to { opacity: 1; } }
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
   .hero-copy { padding: 40px var(--gutter) 36px; }
   .hero-media { aspect-ratio: 4 / 3.4; }
-  .hero-vein { width: calc(100% + 2 * var(--gutter)); margin-left: calc(-1 * var(--gutter)); height: 32px; }
 }
 
 /* Sections */
@@ -396,5 +406,6 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
-  .hero-vein path { stroke-dashoffset: 0; }
+  .measure-rule { clip-path: none; }
+  .measure-label { opacity: 1; }
 }

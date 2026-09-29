@@ -22,9 +22,10 @@
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="Modern Granite Quartz, home">
         <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M6 14h52v42h-13V27H6z" fill="currentColor"/>
-          <path d="M6 22.5c6-1.5 9 .8 14-.6s7.5-3 12-2.1 6.2 1.6 9.4.3c3.2-1.2 5.8-1.6 8.1.6 1.8 1.7 1.6 5 .6 8.6-1 3.6.4 6.9-.4 10.4-.8 3.4-2.4 5.6-1.5 9.2.5 2 .9 4 .7 6.1" fill="none" stroke="var(--vein)" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M32 19.8c1.6-2 3.6-3.1 5.8-3.2" fill="none" stroke="var(--vein)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M6 14H58L46 26H6Z" fill="currentColor"/>
+          <path d="M58 14V56H46V26Z" fill="currentColor"/>
+          <clipPath id="mgq-miter"><path d="M6 14H58V56H46V26H6Z"/></clipPath>
+    <path d="M45 27 59 13" stroke="var(--vein)" stroke-width="3" clip-path="url(#mgq-miter)"/>
         </svg>
         <span class="brand-word"><span class="brand-top">Modern</span><span class="brand-bottom">Granite Quartz</span></span>
       </a>
@@ -49,11 +50,15 @@
     <section class="hero" id="top">
       <div class="hero-copy">
         <h1>Custom countertops, sized to fit your space.</h1>
-        <!-- The vein that runs from the headline into the slab -->
-        <svg class="hero-vein" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-          <path pathLength="1" d="M0 30 C 60 26, 110 38, 170 31 S 260 18, 330 27 S 420 44, 480 34 S 560 12, 640 20 S 760 42, 840 30 S 950 14, 1000 22"/>
-          <path pathLength="1" class="fork" d="M330 27 C 360 16, 390 14, 420 8 S 460 4, 490 6"/>
-        </svg>
+        <!-- A template dimension line: the ruler draws out and the reading settles on an exact size -->
+        <div class="hero-measure" aria-hidden="true">
+          <svg class="measure-rule" viewBox="0 0 1000 40" preserveAspectRatio="none">
+            <path class="measure-ticks" d="M1 28V16 M25 28V23 M50 28V20 M75 28V23 M100 28V16 M125 28V23 M150 28V20 M175 28V23 M200 28V16 M225 28V23 M250 28V20 M275 28V23 M300 28V16 M325 28V23 M350 28V20 M375 28V23 M400 28V16 M425 28V23 M450 28V20 M475 28V23 M500 28V16 M525 28V23 M550 28V20 M575 28V23 M600 28V16 M625 28V23 M650 28V20 M675 28V23 M700 28V16 M725 28V23 M750 28V20 M775 28V23 M800 28V16 M825 28V23 M850 28V20 M875 28V23 M900 28V16 M925 28V23 M950 28V20 M975 28V23 M999 28V16"/>
+            <path class="measure-line" d="M0 28H1000"/>
+            <path class="measure-cap" d="M1 12V40M999 12V40"/>
+          </svg>
+          <span class="measure-label"><span class="measure-value">118 ¾</span>″</span>
+        </div>
         <p class="lede">From a single bathroom vanity to a full kitchen with a waterfall island, every top is measured on site and cut to your exact layout. Granite, quartz and quartzite, installed by our own crew across Southeast Michigan.</p>
         <div class="hero-actions">
           <a class="btn" href="#quote">Get a free quote</a>

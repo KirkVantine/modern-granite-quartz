@@ -14,7 +14,7 @@ Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build s
 
 - `assets/logo.svg`: full logo, dark on light (fonts embedded, works anywhere)
 - `assets/logo-light.svg`: full logo, light for dark backgrounds
-- `assets/logo-mark.svg`: the waterfall mark alone (favicon, social avatar)
+- `assets/logo-mark.svg`: the mark alone (favicon, social avatar): a waterfall countertop in profile, two pieces meeting at a gold 45° mitered seam
 
 ## Brand
 

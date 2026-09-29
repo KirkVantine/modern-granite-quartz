@@ -7,6 +7,29 @@ const FACEBOOK_URL = 'https://www.facebook.com/modern.granite.quartz.2025';
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* Hero dimension line: the reading counts up in eighths of an inch while the rule draws out */
+const measureValue = document.querySelector('.measure-value');
+if (measureValue && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const TARGET = 118.75;
+  const FRACTIONS = ['', '⅛', '¼', '⅜', '½', '⅝', '¾', '⅞'];
+  const format = (inches) => {
+    const eighths = Math.round(inches * 8);
+    const whole = Math.floor(eighths / 8);
+    const frac = FRACTIONS[eighths % 8];
+    return frac ? `${whole} ${frac}` : String(whole);
+  };
+  const delay = 300, duration = 1800;
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  const start = performance.now() + delay;
+  measureValue.textContent = format(0);
+  const tick = (now) => {
+    const t = Math.min(Math.max((now - start) / duration, 0), 1);
+    measureValue.textContent = format(TARGET * easeOut(t));
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
 /* Header: border once scrolled, mobile menu */
 const header = document.querySelector('.site-header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
