@@ -1,14 +1,24 @@
 {
-  // Cloudflare Workers config: an assets-only Worker with no `main` entry point,
-  // so Cloudflare serves the static files in this folder as they are.
-  // Files that are not part of the site are listed in .assetsignore.
+  // Cloudflare Workers config. Static files in this folder are served as they
+  // are (files that are not part of the site are listed in .assetsignore), and
+  // src/worker.js handles POST /api/quote, emailing quote requests via Resend.
   //
-  // Pairs with these Cloudflare build settings (Workers & Pages > import this repo):
+  // Pairs with these Cloudflare build settings (Workers & Pages > this repo):
   //   Build command:  (leave empty)
   //   Deploy command: npx wrangler deploy
+  //
+  // RESEND_API_KEY is a secret set in the dashboard (Settings > Variables and
+  // Secrets). Deploys from git leave dashboard secrets in place.
   "name": "modern-granite-quartz",
+  "main": "src/worker.js",
   "compatibility_date": "2026-09-29",
   "assets": {
-    "directory": "./"
-  }
+    "directory": "./",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "QUOTE_TO": "Razvan Vieru <qualitygranite7@gmail.com>",
+    "QUOTE_FROM": "Modern Granite Quartz <quotes@moderngranitequartz.com>"
+  },
+  "observability": { "enabled": true }
 }

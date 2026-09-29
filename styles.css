@@ -305,6 +305,7 @@ p { margin: 0; }
 @media (max-width: 860px) { .quote-grid { grid-template-columns: 1fr; } }
 
 .quote-form { display: grid; gap: 20px; }
+.quote-form .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
 .field { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }

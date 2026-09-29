@@ -8,7 +8,7 @@ The GitHub Pages preview was turned off at launch (2026-09-29) so search engines
 
 ## Before launch
 
-- **Quote form**: `QUOTE_EMAIL` is set to qualitygranite7@gmail.com, so submitting opens the visitor's email app with the request filled in. For requests that send without the visitor's email app, set `QUOTE_ENDPOINT` (Formspree, or a Cloudflare Pages function with Resend like the New Beginnings site).
+- **Quote form**: posts to `/api/quote` (`src/worker.js`), which emails each request to qualitygranite7@gmail.com through Resend, from `quotes@moderngranitequartz.com` with Reply-To set to the customer. Needs the `RESEND_API_KEY` secret in Cloudflare (Worker > Settings > Variables and Secrets) and moderngranitequartz.com verified in Resend. Without the key, or if sending fails, the form falls back to opening the visitor's email app pre-filled, so no request is lost. Spam traps: hidden `company` field and a 3-second minimum fill time. Delivery address and sender are `QUOTE_TO` / `QUOTE_FROM` in `wrangler.jsonc`.
 - **Contact**: phone (248) 981-0033 and qualitygranite7@gmail.com appear in the header, hero, quote section, footer and structured data.
 - **Service area**: the "Where we install" section lists cities in Oakland, Livingston, Washtenaw, Wayne and Macomb counties. Confirm the list with Razvan; the same cities are repeated in the `areaServed` structured data in the page head.
 - **Reviews**: only one public review was available (Vitalie Cortac). Add more real reviews to the `#reviews` section as they come in.

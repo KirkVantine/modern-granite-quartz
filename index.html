@@ -361,6 +361,12 @@
         </div>
 
         <form class="quote-form" id="quote-form" novalidate>
+          <!-- Spam traps: bots fill the hidden field and submit instantly; people do neither. -->
+          <div class="trap" aria-hidden="true">
+            <label for="company">Company (leave blank)</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="t" id="form-started">
           <div class="error-summary" id="error-summary" tabindex="-1" hidden>
             <h3>Check these fields</h3>
             <ul></ul>

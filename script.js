@@ -1,7 +1,7 @@
 // Where quote requests go. Set ONE of these before launch:
 //   QUOTE_ENDPOINT: a form service URL that accepts POST (Formspree, Basin, Netlify Forms, etc.)
 //   QUOTE_EMAIL:    fallback that opens the visitor's email app with the request filled in
-const QUOTE_ENDPOINT = '';
+const QUOTE_ENDPOINT = '/api/quote';
 const QUOTE_EMAIL = 'qualitygranite7@gmail.com';
 const FACEBOOK_URL = 'https://www.facebook.com/modern.granite.quartz.2025';
 
@@ -163,6 +163,10 @@ const summary = document.getElementById('error-summary');
 const statusEl = form.querySelector('.form-status');
 const submitBtn = form.querySelector('button[type="submit"]');
 
+// When the form was shown, so the server can tell a person from an instant bot submission.
+const stampStart = () => { document.getElementById('form-started').value = String(Date.now()); };
+stampStart();
+
 const rules = [
   { id: 'name', test: (v) => v.trim().length > 1, msg: 'Enter your name.' },
   { id: 'phone', test: (v) => v.replace(/\D/g, '').length >= 10, msg: 'Enter a 10-digit phone number, like 248 555 0100.' },
@@ -218,28 +222,38 @@ form.addEventListener('submit', async (e) => {
     `${data.get('details') || ''}`
   ].join('\n');
 
+  // Backup route: the visitor's own email app, pre-filled.
+  const openEmailApp = (lead) => {
+    window.location.href = `mailto:${QUOTE_EMAIL}?subject=${encodeURIComponent('Countertop quote request')}&body=${encodeURIComponent(body)}`;
+    statusEl.innerHTML = `${lead}Your email app should open with the request filled in. Press send to finish. If nothing opened, email <a href="mailto:${QUOTE_EMAIL}">${QUOTE_EMAIL}</a> or call or text <a href="tel:+12489810033">(248) 981-0033</a>.`;
+  };
+
   if (QUOTE_ENDPOINT) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
+    let sent = false;
     try {
       const res = await fetch(QUOTE_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      statusEl.textContent = 'Quote request sent. We will call you within one business day.';
+      sent = res.ok;
     } catch {
-      statusEl.textContent = 'Your request did not send. Check your connection and try again, or message us on Facebook.';
+      sent = false;
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send my quote request';
     }
+    if (sent) {
+      form.reset();
+      stampStart();
+      statusEl.textContent = 'Quote request sent. We will call you within one business day.';
+      return;
+    }
+    // Never lose a request: if the server could not send it, hand it to the email app.
+    if (QUOTE_EMAIL) { openEmailApp('We could not send your request from the website. '); return; }
+    statusEl.innerHTML = 'Your request did not send. Please call or text <a href="tel:+12489810033">(248) 981-0033</a>.';
     return;
   }
 
-  if (QUOTE_EMAIL) {
-    window.location.href = `mailto:${QUOTE_EMAIL}?subject=${encodeURIComponent('Countertop quote request')}&body=${encodeURIComponent(body)}`;
-    statusEl.innerHTML = `Your email app should open with the request filled in. Press send to finish. If nothing opened, email <a href="mailto:${QUOTE_EMAIL}">${QUOTE_EMAIL}</a> or call or text <a href="tel:+12489810033">(248) 981-0033</a>.`;
-    return;
-  }
+  if (QUOTE_EMAIL) { openEmailApp(''); return; }
 
   statusEl.innerHTML = `Online requests aren't switched on yet. Please call or text <a href="tel:+12489810033">(248) 981-0033</a>, or <a href="${FACEBOOK_URL}" target="_blank" rel="noopener">message us on Facebook</a>.`;
 });
