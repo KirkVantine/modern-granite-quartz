@@ -308,6 +308,15 @@ p { margin: 0; }
 .review figcaption { margin-top: 22px; color: var(--slate); font-size: var(--step--1); }
 .review-link { margin-top: 28px; font-size: var(--step--1); }
 
+/* Service area */
+.area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 32px clamp(20px, 3vw, 40px); }
+.area-county { min-width: 0; padding-top: 16px; border-top: 1.5px solid var(--graphite); }
+.area-county h3 { font-size: var(--step-0); font-weight: 700; }
+.area-county ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 4px; color: var(--slate); font-size: var(--step--1); }
+.area-grid .area-county:first-child ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+@media (min-width: 961px) { .area-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; } }
+@media (max-width: 960px) { .area-grid .area-county:first-child { grid-column: 1 / -1; } }
+
 /* Quote */
 .quote-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .quote-intro h2 { font-size: var(--step-3); color: var(--white); }
@@ -315,7 +324,7 @@ p { margin: 0; }
 .contact-list { margin: 40px 0 0; display: grid; gap: 22px; }
 .contact-list dt { color: var(--vein); font-size: var(--step--1); font-weight: 500; }
 .contact-list dd { margin: 4px 0 0; color: var(--slab); }
-.contact-list a { text-underline-offset: 4px; }
+.contact-list a { text-underline-offset: 4px; color: var(--vein); }
 @media (max-width: 860px) { .quote-grid { grid-template-columns: 1fr; } }
 
 .quote-form { display: grid; gap: 20px; }

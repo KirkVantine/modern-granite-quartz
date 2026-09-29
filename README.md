@@ -6,7 +6,7 @@ Static site: `index.html`, `styles.css`, `script.js`, plus `assets/`. No build s
 
 - **Quote form**: set `QUOTE_ENDPOINT` (e.g. a Formspree URL) or `QUOTE_EMAIL` at the top of `script.js`. Until one is set, the form validates and then points visitors to Facebook.
 - **Phone number / email**: none were public on the Facebook page, so none are shown. Add them to the "Get a free quote" contact list in `index.html` (and the header if wanted).
-- **Service area**: the copy names Waterford Township, Commerce Township and Ann Arbor (from the Facebook profile and posts). Adjust as needed.
+- **Service area**: the "Where we install" section lists cities in Oakland, Livingston, Washtenaw, Wayne and Macomb counties. Confirm the list with Razvan; the same cities are repeated in the `areaServed` structured data in the page head.
 - **Reviews**: only one public review was available (Vitalie Cortac). Add more real reviews to the `#reviews` section as they come in.
 - **Photos**: `assets/img/` holds the 10 job photos from Facebook, renamed. `assets/source/` has the untouched originals. The profile photo was not used.
 
