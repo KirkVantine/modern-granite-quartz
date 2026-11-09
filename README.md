@@ -12,7 +12,7 @@ The GitHub Pages preview was turned off at launch (2026-09-29) so search engines
 - **Contact**: phone (248) 981-0033 and qualitygranite7@gmail.com appear in the header, hero, quote section, footer and structured data.
 - **Service area**: the "Where we install" section lists cities in Oakland, Livingston, Washtenaw, Wayne and Macomb counties. Confirm the list with Razvan; the same cities are repeated in the `areaServed` structured data in the page head.
 - **Reviews**: only one public review was available (Vitalie Cortac). Add more real reviews to the `#reviews` section as they come in.
-- **Photos**: `assets/img/` holds web-sized copies (max 2048px, ~200-600 KB). Ten are photos Razvan sent on 2026-09-29 (originals in `assets/source/razvan-batch-1` and `razvan-batch-2`); four are from the Facebook page (originals in `assets/source/`). The profile photo was not used.
+- **Photos**: `assets/img/` holds web-sized copies (max 2048px, ~200-600 KB). Ten are photos Razvan sent on 2026-09-29 (originals in `assets/source/razvan-batch-1` and `razvan-batch-2`); four are from the Facebook page (originals in `assets/source/`). The profile photo was not used. Each photo also has `-800` and `-1200` copies; the page lists all three in `srcset` so phones download the small ones (about 1.4 MB for the whole page instead of 4.2 MB) and tap-to-enlarge opens the full size. `_headers` tells browsers to keep photos and logos for a week, so **to replace a photo, save it under a new filename** with fresh `-800`/`-1200` copies rather than overwriting the old file.
 
 ## Logo files
 

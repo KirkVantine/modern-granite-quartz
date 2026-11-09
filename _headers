@@ -1,0 +1,14 @@
+# Read by Cloudflare when serving the site (not served as a page).
+#
+# Photos and logos are kept by browsers for a week, so repeat visits load
+# instantly. The page, styles and script are left alone: they are always
+# re-checked, so site updates show up right away.
+#
+# Because browsers hold photos for a week, replacing a photo means saving it
+# under a NEW filename (and its -800 / -1200 copies), not overwriting the old one.
+
+/assets/img/*
+  Cache-Control: public, max-age=604800
+
+/assets/*.svg
+  Cache-Control: public, max-age=604800
