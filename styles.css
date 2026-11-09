@@ -125,7 +125,10 @@ p { margin: 0; }
 .hero-copy {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; justify-content: center;
-  --copy-pad: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
+  /* Lines the headline up with the logo. Capped at the hero's own 1440px max width:
+     measured from the full window instead, the margin kept growing past 1440px and
+     pushed the headline into the photo on wide monitors. */
+  --copy-pad: max(var(--gutter), calc((min(100vw, 1440px) - var(--maxw)) / 2 + var(--gutter)));
   padding: clamp(40px, 6vw, 88px) var(--gutter) clamp(40px, 5vw, 72px) var(--copy-pad);
 }
 .hero h1 { font-size: var(--step-4); font-weight: 800; max-width: 12ch; }
