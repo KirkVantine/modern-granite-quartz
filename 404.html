@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Modern Granite Quartz</title>
+  <meta name="robots" content="noindex">
+  <!-- Served for any missing URL, at any depth, so every path here starts with "/" -->
+  <link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .lost { min-height: calc(100svh - var(--header-h)); display: grid; align-content: center; padding-block: clamp(48px, 10vw, 120px); }
+    .lost h1 { font-size: var(--step-3); max-width: 16ch; }
+    .lost p { margin-top: 20px; max-width: 46ch; color: var(--slate); font-size: var(--step-1); line-height: 1.55; }
+    .lost .hero-actions { margin-top: 32px; }
+    .lost .home-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; color: var(--vein-ink); font-weight: 600; text-underline-offset: 4px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="Modern Granite Quartz, home">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M6 14H58L46 26H6Z" fill="currentColor"/>
+          <path d="M58 14V56H46V26Z" fill="currentColor"/>
+          <clipPath id="mgq-miter"><path d="M6 14H58V56H46V26H6Z"/></clipPath>
+          <path d="M45 27 59 13" stroke="var(--vein)" stroke-width="3" clip-path="url(#mgq-miter)"/>
+        </svg>
+        <span class="brand-word"><span class="brand-top">Modern</span><span class="brand-bottom">Granite Quartz</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="lost wrap">
+    <h1>We couldn't find that page.</h1>
+    <p>The link may be old or mistyped. Everything about our countertops is on the home page, or you can reach us directly.</p>
+    <div class="hero-actions">
+      <a class="btn" href="/#quote">Get a free quote</a>
+      <a class="btn btn-ghost" href="tel:+12489810033">Call (248) 981-0033</a>
+    </div>
+    <a class="home-link" href="/">Go to the home page</a>
+  </main>
+</body>
+</html>

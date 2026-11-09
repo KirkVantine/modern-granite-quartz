@@ -270,7 +270,8 @@ p { margin: 0; }
 /* Also on the image: iOS Safari ignores aspect-ratio on a <button>, so the photo sets its own shape */
 .gallery .tile-open img { aspect-ratio: 3 / 4; height: auto; }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.gallery-more { margin-top: 28px; }
+.gallery-more { margin-top: 20px; }
+.gallery-more a { display: inline-flex; align-items: center; min-height: 44px; }
 .gallery-more a, .review-link a { color: var(--vein-ink); font-weight: 600; text-underline-offset: 4px; }
 
 /* Review */
@@ -300,10 +301,12 @@ p { margin: 0; }
 .quote-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .quote-intro h2 { font-size: var(--step-3); color: var(--white); }
 .quote-intro > p { margin-top: 20px; color: #C4CACF; max-width: 40ch; }
-.contact-list { margin: 40px 0 0; display: grid; gap: 22px; }
+.contact-list { margin: 40px 0 0; display: grid; gap: 14px; }
 .contact-list dt { color: var(--vein); font-size: var(--step--1); font-weight: 500; }
-.contact-list dd { margin: 4px 0 0; color: var(--slab); }
+.contact-list dd { margin: 0; color: var(--slab); }
 .contact-list a { text-underline-offset: 4px; color: var(--vein); }
+/* Standalone phone, email and Facebook links get a full 44px tap area (the in-sentence link stays inline) */
+.contact-list a[href^="tel:"], .contact-list a[href^="mailto:"], .contact-list a[href*="facebook"] { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 860px) { .quote-grid { grid-template-columns: 1fr; } }
 
 .quote-form { display: grid; gap: 20px; }
@@ -352,7 +355,8 @@ p { margin: 0; }
 /* Footer */
 .site-footer { background: var(--slab); padding-block: 56px 40px; border-top: 1px solid var(--mist); }
 .footer-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px 48px; }
-.footer-contact a { color: var(--graphite); font-weight: 600; text-underline-offset: 4px; }
+.footer-brand .footer-contact { display: flex; flex-direction: column; align-items: flex-start; margin-top: 8px; }
+.footer-contact a { display: inline-flex; align-items: center; min-height: 44px; color: var(--graphite); font-weight: 600; text-underline-offset: 4px; }
 .footer-brand p { margin-top: 16px; color: var(--slate); font-size: var(--step--1); max-width: 40ch; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 4px 24px; align-content: start; justify-content: flex-end; }
 .footer-nav a { text-decoration: none; font-size: var(--step--1); font-weight: 500; padding: 10px 0; }
